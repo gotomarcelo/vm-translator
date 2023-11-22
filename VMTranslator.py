@@ -19,6 +19,6 @@ def main(input_file, output_file):
 
 if __name__ == "__main__":
     # Substitua pelo caminho do seu arquivo VM
-    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/teste.vm"
-    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/output.asm"
+    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/07/MemoryAccess/BasicTest/BasicTest.vm"
+    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/07/MemoryAccess/BasicTest/BasicTest.asm"
     main(input_file, output_file)
