@@ -1,3 +1,20 @@
+from CodeWriter import CodeWriter
+
+class ArithmeticCommand:
+    def __init__(self, command_type):
+        self.command_type = command_type
+
+
+class PushCommand:
+    def __init__(self, segment, index):
+        self.segment = segment
+        self.index = index
+
+
+class PopCommand:
+    def __init__(self, segment, index):
+        self.segment = segment
+        self.index = index
 class Parser:
     def __init__(self, filename):
         self.file = open(filename, "r")
