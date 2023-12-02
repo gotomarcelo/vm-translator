@@ -26,6 +26,10 @@ class CodeWriter:
         elif command.command_type in {"eq", "gt", "lt"}:
             assembly_code += self.comparison_operation(
                 arithmetic_mapping[command.command_type])
+        elif command.command_type in {"eq", "gt", "lt"}:
+            label_id = self.get_label_id()
+            assembly_code += self.comparison_operation(
+                arithmetic_mapping[command.command_type], label_id)
 
         self.file.write(assembly_code)
 
@@ -112,6 +116,9 @@ class CodeWriter:
     def pop_to_static_temp_pointer(self, segment, index):
         return f"@{segment}\nD=A\n@{index}\nD=D+A\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n"
 
+    def writeLabel(self, label):
+        assembly_code = f"({label})\n"
+        self.file.write(assembly_code)
 
     def close(self):
         self.file.close()

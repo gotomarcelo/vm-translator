@@ -1,5 +1,6 @@
 from CodeWriter import CodeWriter
 
+
 class ArithmeticCommand:
     def __init__(self, command_type):
         self.command_type = command_type
@@ -15,10 +16,18 @@ class PopCommand:
     def __init__(self, segment, index):
         self.segment = segment
         self.index = index
+
+
+class LabelCommand:
+    def __init__(self, label):
+        self.label = label
+
+
 class Parser:
     def __init__(self, filename):
         self.file = open(filename, "r")
-        self.commands = [self.parse_command(line) for line in self.file.readlines() if "//" not in line and line.strip() != ""]
+        self.commands = [self.parse_command(line) for line in self.file.readlines(
+        ) if "//" not in line and line.strip() != ""]
         self.current_command = None
 
     def parse_command(self, line):
@@ -27,6 +36,8 @@ class Parser:
             return PushCommand(parts[1], int(parts[2]))
         elif parts[0] == "pop":
             return PopCommand(parts[1], int(parts[2]))
+        elif parts[0] == "label":
+            return LabelCommand(parts[1])
         else:
             return ArithmeticCommand(parts[0])
 

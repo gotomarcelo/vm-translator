@@ -1,5 +1,5 @@
 from CodeWriter import CodeWriter
-import Parser 
+import Parser
 
 
 def main(input_file, output_file):
@@ -8,8 +8,8 @@ def main(input_file, output_file):
 
     while p.hasMoreCommands():
         current_command = p.nextCommand()
-        if isinstance(current_command, Parser.ArithmeticCommand):
-            code.writeArithmetic(current_command)
+        if isinstance(current_command, Parser.LabelCommand):
+            code.writeLabel(current_command.label)
         elif isinstance(current_command, Parser.PushCommand):
             code.writePush(current_command.segment, current_command.index)
         elif isinstance(current_command, Parser.PopCommand):
@@ -17,8 +17,9 @@ def main(input_file, output_file):
 
     code.close()
 
+
 if __name__ == "__main__":
     # Substitua pelo caminho do seu arquivo VM
-    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/07/MemoryAccess/BasicTest/BasicTest.vm"
-    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/07/MemoryAccess/BasicTest/BasicTest.asm"
+    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/test.vm"
+    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/output.asm"
     main(input_file, output_file)
