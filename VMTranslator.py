@@ -8,8 +8,10 @@ def main(input_file, output_file):
 
     while p.hasMoreCommands():
         current_command = p.nextCommand()
-        if isinstance(current_command, Parser.LabelCommand):
-            code.writeLabel(current_command.label)
+        if isinstance(current_command, Parser.GotoCommand):
+            code.writeGoto(current_command.label)
+        elif isinstance(current_command, Parser.IfGotoCommand):
+            code.writeIfGoto(current_command.label)
         elif isinstance(current_command, Parser.PushCommand):
             code.writePush(current_command.segment, current_command.index)
         elif isinstance(current_command, Parser.PopCommand):

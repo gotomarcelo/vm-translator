@@ -119,6 +119,14 @@ class CodeWriter:
     def writeLabel(self, label):
         assembly_code = f"({label})\n"
         self.file.write(assembly_code)
+    
+    def writeGoto(self, label):
+        assembly_code = f"@{label}\n0;JMP\n"
+        self.file.write(assembly_code)
+
+    def writeIfGoto(self, label):
+        assembly_code = f"@SP\nAM=M-1\nD=M\n@{label}\nD;JNE\n"
+        self.file.write(assembly_code)
 
     def close(self):
         self.file.close()

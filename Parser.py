@@ -22,6 +22,13 @@ class LabelCommand:
     def __init__(self, label):
         self.label = label
 
+class GotoCommand:
+    def __init__(self, label):
+        self.label = label
+
+class IfGotoCommand:
+    def __init__(self, label):
+        self.label = label
 
 class Parser:
     def __init__(self, filename):
@@ -38,6 +45,10 @@ class Parser:
             return PopCommand(parts[1], int(parts[2]))
         elif parts[0] == "label":
             return LabelCommand(parts[1])
+        elif parts[0] == "goto":
+            return GotoCommand(parts[1])
+        elif parts[0] == "if-goto":
+            return IfGotoCommand(parts[1])
         else:
             return ArithmeticCommand(parts[0])
 
