@@ -157,6 +157,10 @@ class CodeWriter:
         self.writePop("pointer", "LCL") 
         self.writeGoto("RET_ADDR")
 
+    def writeInit(self):
+        self.file.write("@256\nD=A\n@SP\nM=D\n")
+        self.writeCall("Sys.init", 0)
+
 
     def close(self):
         self.file.close()
