@@ -30,6 +30,11 @@ class IfGotoCommand:
     def __init__(self, label):
         self.label = label
 
+class CallCommand:
+    def __init__(self, function_name, n_args):
+        self.function_name = function_name
+        self.n_args = n_args
+
 class Parser:
     def __init__(self, filename):
         self.file = open(filename, "r")
@@ -49,6 +54,8 @@ class Parser:
             return GotoCommand(parts[1])
         elif parts[0] == "if-goto":
             return IfGotoCommand(parts[1])
+        elif parts[0] == "call":
+            return CallCommand(parts[1], int(parts[2]))
         else:
             return ArithmeticCommand(parts[0])
 

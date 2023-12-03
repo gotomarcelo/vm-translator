@@ -16,7 +16,8 @@ def main(input_file, output_file):
             code.writePush(current_command.segment, current_command.index)
         elif isinstance(current_command, Parser.PopCommand):
             code.writePop(current_command.segment, current_command.index)
-
+        elif isinstance(current_command, Parser.CallCommand):
+            code.writeCall(current_command.function_name, current_command.n_args)
     code.close()
 
 
