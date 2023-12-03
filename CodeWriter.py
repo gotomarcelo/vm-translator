@@ -146,5 +146,12 @@ class CodeWriter:
 
         self.writeLabel(return_address_label)
 
+    def writeFunction(self, function_name, n_locals):
+        self.writeLabel(function_name)
+
+        for _ in range(n_locals):
+            self.writePush("constant", 0)
+
+
     def close(self):
         self.file.close()

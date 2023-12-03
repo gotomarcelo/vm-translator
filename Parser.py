@@ -35,6 +35,11 @@ class CallCommand:
         self.function_name = function_name
         self.n_args = n_args
 
+class FunctionCommand:
+    def __init__(self, function_name, n_locals):
+        self.function_name = function_name
+        self.n_locals = n_locals
+
 class Parser:
     def __init__(self, filename):
         self.file = open(filename, "r")
@@ -56,6 +61,8 @@ class Parser:
             return IfGotoCommand(parts[1])
         elif parts[0] == "call":
             return CallCommand(parts[1], int(parts[2]))
+        elif parts[0] == "function":
+            return FunctionCommand(parts[1], int(parts[2]))
         else:
             return ArithmeticCommand(parts[0])
 
