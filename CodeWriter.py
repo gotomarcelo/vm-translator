@@ -128,6 +128,10 @@ class CodeWriter:
         assembly_code = f"@SP\nAM=M-1\nD=M\n@{label}\nD;JNE\n"
         self.file.write(assembly_code)
 
+    def writeBinaryOperation(self, dest, comp, jump, n_args):
+        assembly_code = f"@SP\nAM=M-1\nD=M\nA=A-1\nM=M{comp}D\n"
+        self.file.write(assembly_code)
+
     def writeCall(self, function_name, n_args):
         return_address_label = f"RETURN_{self.get_label_id()}"
 
@@ -137,8 +141,8 @@ class CodeWriter:
         self.writePush("this", "THIS")
         self.writePush("that", "THAT")
 
-        self.writeBinaryOperation("D", "A", "M-D", n_args)
-        self.writePop("argument", "ARG")
+        self.writePush("constant", n_args + 5) 
+        self.writePop("pointer", "ARG")
 
         self.writePop("pointer", "LCL")
 
