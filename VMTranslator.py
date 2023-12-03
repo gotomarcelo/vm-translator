@@ -6,7 +6,7 @@ def main(input_file, output_file):
     p = Parser.Parser(input_file)
     code = CodeWriter(output_file)
 
-    # code.writeInit()
+    code.writeInit()
 
     while p.hasMoreCommands():
         current_command = p.nextCommand()
@@ -34,6 +34,6 @@ def main(input_file, output_file):
 
 if __name__ == "__main__":
     # Substitua pelo caminho do seu arquivo VM/BasicLop
-    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/ProgramFlow/BasicLoop/BasicLoop.vm"
-    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/ProgramFlow/BasicLoop/BasicLoop.asm"
+    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/ProgramFlow/FibonacciSeries/FibonacciSeries.vm"
+    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/ProgramFlow/FibonacciSeries/FibonacciSeries.asm"
     main(input_file, output_file)
