@@ -151,6 +151,11 @@ class CodeWriter:
 
         for _ in range(n_locals):
             self.writePush("constant", 0)
+    
+    def writeReturn(self):
+        self.writePop("temp", "0")     
+        self.writePop("pointer", "LCL") 
+        self.writeGoto("RET_ADDR")
 
 
     def close(self):

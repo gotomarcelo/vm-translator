@@ -20,6 +20,8 @@ def main(input_file, output_file):
             code.writeCall(current_command.function_name, current_command.n_args)
         elif isinstance(current_command, Parser.FunctionCommand):
             code.writeFunction(current_command.function_name, current_command.n_locals)
+        elif isinstance(current_command, Parser.ReturnCommand):
+            code.writeReturn()
     code.close()
 
 
