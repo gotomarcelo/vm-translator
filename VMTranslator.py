@@ -34,6 +34,6 @@ def main(input_file, output_file):
 
 if __name__ == "__main__":
     # Substitua pelo caminho do seu arquivo VM/BasicLop
-    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/FunctionCalls/FibonacciElement/Sys.vm"
-    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/FunctionCalls/FibonacciElement/Sys.asm"
+    input_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/FunctionCalls/StaticsTest/Sys.vm"
+    output_file = "C:/Users/marcelo.goto/Documents/tradutor/vm-translator/08/FunctionCalls/StaticsTest/Sys.asm"
     main(input_file, output_file)
