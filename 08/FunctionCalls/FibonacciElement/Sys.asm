@@ -1,0 +1,103 @@
+@256
+D=A
+@SP
+M=D
+// push constant RETURN_0
+@RETURN_0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push local LCL
+@LCL
+D=M
+@LCL
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push argument ARG
+@ARG
+D=M
+@ARG
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push this THIS
+@THIS
+D=M
+@THIS
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push that THAT
+@THAT
+D=M
+@THAT
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push constant 5
+@5
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// pop pointer ARG
+@3
+D=A
+@ARG
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+// pop pointer LCL
+@3
+D=A
+@LCL
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+@Sys.init
+0;JMP
+(RETURN_0)
+(Sys.init)
+// push constant 4
+@4
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+(WHILE)
